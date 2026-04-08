@@ -29,6 +29,8 @@ export default function FreeTestSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Remove leading 0 after country code e.g. +212 0612... → +212 612...
+    const cleanWa = whatsapp.replace(/^(\+\d+)\s*0+/, "$1");
     // Notify owner immediately (fire-and-forget — direct to ngrok bot)
     const payload = {
       object: "page",
@@ -37,7 +39,7 @@ export default function FreeTestSection() {
         form_id: "lenscraft_free_test",
         page_id: "lenscraft_website",
         field_data: [
-          { name: "phone_number", values: [whatsapp] },
+          { name: "phone_number", values: [cleanWa] },
           { name: "email", values: [email] },
         ],
       }}]}],
@@ -48,7 +50,7 @@ export default function FreeTestSection() {
       body: JSON.stringify(payload),
     }).catch(() => {});
     // Redirect to thank-you page with number for the WhatsApp button
-    router.push(`/thank-you?wa=${encodeURIComponent(whatsapp)}`);
+    router.push(`/thank-you?wa=${encodeURIComponent(cleanWa)}`);
   };
 
   const inputStyle: React.CSSProperties = {
