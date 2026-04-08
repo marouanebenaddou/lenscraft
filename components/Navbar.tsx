@@ -93,25 +93,6 @@ export default function Navbar() {
           {/* Right controls */}
           <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
             <button
-              className="hidden md:flex"
-              style={{
-                alignItems: "center",
-                gap: 6,
-                fontSize: 13,
-                color: "rgba(250,250,250,0.8)",
-                background: "transparent",
-                border: "1px solid rgba(255,255,255,0.2)",
-                borderRadius: 8,
-                padding: "6px 12px",
-                cursor: "pointer",
-                fontFamily: "inherit",
-                transition: "border-color 0.2s",
-              }}
-            >
-              <Globe2 size={14} />
-              العربية
-            </button>
-            <button
               onClick={() => document.getElementById("free-test")?.scrollIntoView({ behavior: "smooth" })}
               style={{
                 display: "flex",
