@@ -25,14 +25,16 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Install lftp
+        run: sudo apt-get install -y lftp
+
       - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./out/
-          server-dir: /public_html/
-          protocol: ftp
-          port: 21
-          timeout: 60000
+        run: |
+          lftp -e "
+            set ftp:ssl-allow no;
+            set net:timeout 30;
+            set net:max-retries 3;
+            open -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_SERVER }};
+            mirror -R --delete --no-perms ./out/ /public_html/;
+            quit
+          "
