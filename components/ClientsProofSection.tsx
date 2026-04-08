@@ -65,6 +65,14 @@ export default function ClientsProofSection() {
   const prev = () => setIndex((i) => Math.max(0, i - 1));
   const next = () => setIndex((i) => Math.min(max, i + 1));
 
+  // Auto-scroll every 1.5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => (i >= max ? 0 : i + 1));
+    }, 1500);
+    return () => clearInterval(timer);
+  }, [max]);
+
   return (
     <section style={{ backgroundColor: "#0E1115", padding: "96px 0" }}>
       <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
@@ -95,7 +103,7 @@ export default function ClientsProofSection() {
             <ChevronLeft size={20} />
           </button>
           <div style={{ overflow: "hidden" }}>
-            <div style={{ display: "flex", gap: 16, transition: "transform 0.4s ease", transform: isMobile ? `translateX(calc(-${index} * (100% + 16px)))` : `translateX(calc(-${index} * (33.333% + 5.333px)))` }}>
+            <div style={{ display: "flex", gap: 16, transition: "transform 0.3s ease", transform: isMobile ? `translateX(calc(-${index} * (100% + 16px)))` : `translateX(calc(-${index} * (33.333% + 5.333px)))` }}>
               {clients.map((c, i) => (
                 <WhatsAppCard key={i} img={c.img} label={c.label} stars={c.stars} />
               ))}
