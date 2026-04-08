@@ -159,3 +159,76 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* ── Scroll-triggered animations ── */
+.anim-pre { opacity: 0; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.90); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.anim-fadeInUp    { animation: fadeInUp    both cubic-bezier(0.22,1,0.36,1); }
+.anim-fadeInLeft  { animation: fadeInLeft  both cubic-bezier(0.22,1,0.36,1); }
+.anim-fadeInRight { animation: fadeInRight both cubic-bezier(0.22,1,0.36,1); }
+.anim-fadeIn      { animation: fadeIn      both ease; }
+.anim-scaleIn     { animation: scaleIn     both cubic-bezier(0.22,1,0.36,1); }
+
+/* ── Mobile responsive grid overrides ── */
+@media (max-width: 767px) {
+  /* Any fixed multi-column grid → single column */
+  .mobile-1col { grid-template-columns: 1fr !important; }
+  /* 2 cols on mobile */
+  .mobile-2col { grid-template-columns: repeat(2, 1fr) !important; }
+  /* 3 cols on mobile */
+  .mobile-3col { grid-template-columns: repeat(3, 1fr) !important; }
+  /* Reset grid-row spans */
+  .mobile-row-reset { grid-row: auto !important; min-height: 200px !important; }
+  /* Stack flex rows */
+  .mobile-flex-col { flex-direction: column !important; }
+  /* Reduce font sizes that overflow */
+  .mobile-text-sm { font-size: 13px !important; }
+  /* Full width */
+  .mobile-full { width: 100% !important; max-width: 100% !important; }
+  /* Hide on mobile */
+  .mobile-hidden { display: none !important; }
+  /* Carousel: show 1 card at a time */
+  .carousel-item-mobile { flex: 0 0 100% !important; min-width: 100% !important; }
+  /* Pricing price cols → 1 col */
+  .price-cols-mobile { grid-template-columns: 1fr !important; gap: 12px !important; }
+  /* Stat cards → 2 col */
+  .stat-cols-mobile { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Section padding reduction */
+  .mobile-py { padding-top: 56px !important; padding-bottom: 56px !important; }
+  /* Footer grid */
+  .footer-grid-mobile { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+  /* Why choose: stack image + cards */
+  .why-grid-mobile { grid-template-columns: 1fr !important; gap: 32px !important; }
+  /* Compatibility: 2 cols */
+  .compat-grid-mobile { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Support channels: 1 col */
+  .support-grid-mobile { grid-template-columns: 1fr !important; gap: 12px !important; }
+  /* Features: 2 col */
+  .features-grid-mobile { grid-template-columns: repeat(2, 1fr) !important; }
+  /* Content catalog: 1 col */
+  .catalog-grid-mobile {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto !important;
+  }
+}
