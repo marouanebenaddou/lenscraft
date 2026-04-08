@@ -2,16 +2,14 @@
 import { Animate } from "@/components/Animate";
 
 const movies = [
-  { rank: 1, title: "A Knight of the Seven Kingdoms", img: "https://image.tmdb.org/t/p/w500/1R4VGDvUy0FXBhgGxlbRVNBDuej.jpg" },
-  { rank: 2, title: "Zootopia 2", img: "https://image.tmdb.org/t/p/w500/jahkxfPFzB3S3gDnDDlYBDMxvzG.jpg" },
-  { rank: 3, title: "Wake Up Dead Man", img: "https://image.tmdb.org/t/p/w500/2rmK7mnchw9Xr3XdiTFSxTTLXqv.jpg" },
-  { rank: 4, title: "Now You See Me 3", img: "https://image.tmdb.org/t/p/w500/4m6TqGGZqD7h9xrGNmgmGOSGFTn.jpg" },
-  { rank: 5, title: "The Fantastic Four", img: "https://image.tmdb.org/t/p/w500/9l1eZiJHmhr5jIlthMdJN5WYoff.jpg" },
-  { rank: 6, title: "Marty Supreme", img: "https://image.tmdb.org/t/p/w500/lRoar0cV5lWYvVE7JdFNFYsMMzW.jpg" },
-  { rank: 7, title: "Wonder Man", img: "https://image.tmdb.org/t/p/w500/dOWHUGMvkLjBjGFfX5J1ji6RFTB.jpg" },
-  { rank: 8, title: "Dune: Prophecy", img: "https://image.tmdb.org/t/p/w500/t3RhW9YHGQ5HsNm3dUJJHMaAJqT.jpg" },
-  { rank: 9, title: "Squid Game S3", img: "https://image.tmdb.org/t/p/w500/dDlEmu3EZ0ef1O1kPPSNUhkZhQJ.jpg" },
-  { rank: 10, title: "Avatar 3", img: "https://image.tmdb.org/t/p/w500/jRXADMGdnXZVBHPGAzIFHB5HKEV.jpg" },
+  { rank: 1, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/1.png" },
+  { rank: 2, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/2.png" },
+  { rank: 3, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/3.png" },
+  { rank: 4, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/4.png" },
+  { rank: 5, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/5.png" },
+  { rank: 6, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/6.png" },
+  { rank: 7, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/7.png" },
+  { rank: 8, title: "", img: "https://dublinview.com/wp-content/uploads/2026/02/8.png" },
 ];
 
 export default function TrendingSection() {
