@@ -3,6 +3,7 @@ import FloatingElements from "@/components/FloatingElements";
 import HeroSection from "@/components/HeroSection";
 import ClientsProofSection from "@/components/ClientsProofSection";
 import PricingSection from "@/components/PricingSection";
+import TrendingSection from "@/components/TrendingSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import CompatibilitySection from "@/components/CompatibilitySection";
 import ContentCatalogSection from "@/components/ContentCatalogSection";
@@ -27,6 +28,9 @@ export default function Home() {
         </section>
         <section id="clients">
           <ClientsProofSection />
+        </section>
+        <section id="trending">
+          <TrendingSection />
         </section>
         <section id="pricing">
           <PricingSection />
