@@ -26,7 +26,7 @@ export default function HeroSection() {
     >
       {/* Full-width background image */}
       <Image
-        src="/images/hero-family-watching-tv.jpg"
+        src="https://xperi.com/wp-content/uploads/2023/09/Xperi.com-Blog-Header-1280-%C3%97-720-px-26.png"
         alt="Family watching TV"
         fill
         sizes="100vw"
