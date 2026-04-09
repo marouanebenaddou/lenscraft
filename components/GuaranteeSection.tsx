@@ -35,7 +35,7 @@ export default function GuaranteeSection() {
         </Animate>
 
         {/* Stats */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, maxWidth: 800, margin: "0 auto" }}>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6" style={{ maxWidth: 800, margin: "0 auto" }}>
           {stats.map((s, i) => (
             <Animate key={s.value} type="fadeInUp" delay={0.3 + i * 0.1}>
               <div style={{ backgroundColor: "rgba(17,24,39,0.6)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 16, padding: "32px 24px" }}>
