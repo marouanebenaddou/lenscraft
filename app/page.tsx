@@ -18,6 +18,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import FloatingCTA from "@/components/FloatingCTA";
+import ChannelSearchSection from "@/components/ChannelSearchSection";
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
           <PricingSection />
         </section>
         <HowItWorksSection />
+        <ChannelSearchSection />
         <section id="pourquoi-nous">
           <WhyChooseUsSection />
         </section>
