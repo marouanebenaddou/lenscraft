@@ -21,13 +21,13 @@ export default function ChannelSearchSection() {
       <div style={{ maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
         {/* Title */}
         <div style={{ display: "inline-block", border: "1px solid rgba(255,255,255,0.15)", color: "#D1D5DB", borderRadius: 20, padding: "4px 16px", fontSize: 13, marginBottom: 20 }}>
-          📺 35,000+ Channels
+          📺 35 000+ Chaînes
         </div>
         <h2 style={{ fontSize: "clamp(26px, 4vw, 40px)", fontWeight: 800, color: "#FFFFFF", marginBottom: 12, fontFamily: "inherit" }}>
-          Is your favourite channel available?
+          Votre chaîne préférée est-elle disponible ?
         </h2>
         <p style={{ fontSize: 15, color: "rgba(255,255,255,0.6)", marginBottom: 36 }}>
-          Search from our library of 35,000+ live channels
+          Recherchez parmi notre catalogue de 35 000+ chaînes en direct
         </p>
 
         {/* Search input */}
@@ -35,7 +35,7 @@ export default function ChannelSearchSection() {
           <span style={{ position: "absolute", left: 18, top: "50%", transform: "translateY(-50%)", fontSize: 20 }}>🔍</span>
           <input
             type="text"
-            placeholder="Search your favourite channel..."
+            placeholder="Recherchez votre chaîne préférée..."
             value={query}
             onChange={e => { setQuery(e.target.value); setSearched(true); }}
             style={{
@@ -67,7 +67,7 @@ export default function ChannelSearchSection() {
                   }}>
                     <span style={{ fontSize: 15, color: "#FAFAFA", fontWeight: 500 }}>📺 {ch}</span>
                     <span style={{ fontSize: 13, color: "#34D399", fontWeight: 700, display: "flex", alignItems: "center", gap: 6 }}>
-                      ✅ Available
+                      ✅ Disponible
                     </span>
                   </div>
                 ))}
@@ -98,7 +98,7 @@ export default function ChannelSearchSection() {
                   boxShadow: "0 4px 20px rgba(34,211,238,0.35)",
                 }}
               >
-                🎁 Try it free for 24h
+                🎁 Essayez gratuitement 24h
               </button>
             </div>
           </div>
