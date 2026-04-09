@@ -60,19 +60,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <a href="#" style={{ textDecoration: "none", flexShrink: 0 }}>
-            <span
-              style={{
-                background: "linear-gradient(to right, #257BF4, #E63333)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                fontSize: 22,
-                fontWeight: 800,
-                letterSpacing: "-0.5px",
-              }}
-            >
-              Lenscraft
-            </span>
+            <img src="/images/logo.png" alt="Lenscraft" style={{ height: 36, width: "auto", display: "block" }} />
           </a>
 
           {/* Desktop nav links */}
