@@ -30,13 +30,13 @@ export default function Home() {
         <section id="clients">
           <ClientsProofSection />
         </section>
-        <HowItWorksSection />
         <section id="trending">
           <TrendingSection />
         </section>
         <section id="pricing">
           <PricingSection />
         </section>
+        <HowItWorksSection />
         <section id="pourquoi-nous">
           <WhyChooseUsSection />
         </section>
