@@ -90,7 +90,7 @@ export default function ChannelLogosSection() {
                 ) : (
                   <span
                     style={{
-                      fontSize: "clamp(9px, 1.1vw, 12px)",
+                      fontSize: "clamp(11px, 1.4vw, 15px)",
                       fontWeight: 800,
                       color: ch.textColor ?? "#ffffff",
                       textAlign: "center",
