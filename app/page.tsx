@@ -16,6 +16,7 @@ import FAQSection from "@/components/FAQSection";
 import SupportSection from "@/components/SupportSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
+import HowItWorksSection from "@/components/HowItWorksSection";
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
         <section id="clients">
           <ClientsProofSection />
         </section>
+        <HowItWorksSection />
         <section id="trending">
           <TrendingSection />
         </section>
