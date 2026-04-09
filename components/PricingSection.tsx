@@ -74,6 +74,9 @@ function DesktopTile({
   cta,
   ctaColor,
   isRecommended,
+  features,
+  lockedFeatures,
+  separatorLabel,
 }: {
   label: string;
   price: string;
@@ -84,6 +87,9 @@ function DesktopTile({
   cta: string;
   ctaColor: string;
   isRecommended?: boolean;
+  features: string[];
+  lockedFeatures?: string[];
+  separatorLabel?: string;
 }) {
   return (
     <div
@@ -118,11 +124,36 @@ function DesktopTile({
       )}
       <button
         onClick={() => document.getElementById("free-test")?.scrollIntoView({ behavior: "smooth" })}
-        className="mt-auto w-full font-semibold rounded-lg py-2 text-sm transition-all cursor-pointer"
+        className="w-full font-semibold rounded-lg py-2 text-sm transition-all cursor-pointer"
         style={{ background: ctaColor, color: accent === "#FBBF24" ? "#000" : "#fff", boxShadow: `0 6px 16px ${accent}25` }}
       >
         {cta}
       </button>
+      <ul className="space-y-2 pt-1 border-t border-white/8">
+        {features.map((item) => (
+          <li key={item} className="flex items-start gap-2 text-xs text-white/70">
+            <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
+            {item}
+          </li>
+        ))}
+      </ul>
+      {lockedFeatures && separatorLabel && (
+        <>
+          <div className="flex items-center gap-2 text-xs text-white/30">
+            <span className="h-px flex-1 bg-white/10" />
+            <span>{separatorLabel}</span>
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+          <ul className="space-y-2">
+            {lockedFeatures.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-xs text-white/70">
+                <Star className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </div>
   );
 }
@@ -306,6 +337,7 @@ export default function PricingSection() {
                     cta="🎁 Tester maintenant"
                     ctaColor="linear-gradient(135deg, #22D3EE, #0891B2)"
                     isRecommended={i === 2}
+                    features={premiumFeatures}
                   />
                 ))}
               </div>
@@ -333,6 +365,9 @@ export default function PricingSection() {
                     cta="🔥 Choisir Gold"
                     ctaColor="linear-gradient(135deg, #FBBF24, #F59E0B)"
                     isRecommended={i === 2}
+                    features={goldFeatures}
+                    lockedFeatures={goldLocked}
+                    separatorLabel="Exclusivités Gold"
                   />
                 ))}
               </div>
