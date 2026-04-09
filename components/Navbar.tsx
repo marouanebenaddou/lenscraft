@@ -60,7 +60,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <a href="#" style={{ textDecoration: "none", flexShrink: 0 }}>
-            <img src="/images/logo.png" alt="Lenscraft" style={{ height: 36, width: "auto", display: "block" }} />
+            <img src="/images/logo.png" alt="Lenscraft" style={{ height: 48, width: "auto", display: "block" }} />
           </a>
 
           {/* Desktop nav links */}
