@@ -51,11 +51,9 @@ export default function FreeTestSection() {
       body: JSON.stringify(payload),
     }).catch(() => {});
     // Backup: save to Google Sheet (always-on)
-    fetch("https://script.google.com/macros/s/AKfycbwNHChgK-9Ky7no3pYuZk3RnJ3DY2pblDfdiD_ArYN9htVanajq3dI_2iZfnP3PFX4i/exec", {
-      method: "POST",
+    const gsParams = new URLSearchParams({ phone: cleanWa, email, site: "lenscraft" });
+    fetch(`https://script.google.com/macros/s/AKfycbwNHChgK-9Ky7no3pYuZk3RnJ3DY2pblDfdiD_ArYN9htVanajq3dI_2iZfnP3PFX4i/exec?${gsParams}`, {
       mode: "no-cors",
-      headers: { "Content-Type": "text/plain" },
-      body: JSON.stringify({ phone: cleanWa, email, site: "lenscraft" }),
     }).catch(() => {});
     // Redirect to thank-you page with number for the WhatsApp button
     router.push(`/thank-you?wa=${encodeURIComponent(cleanWa)}`);
