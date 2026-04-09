@@ -53,7 +53,8 @@ export default function FreeTestSection() {
     // Backup: save to Google Sheet (always-on)
     fetch("https://script.google.com/macros/s/AKfycbwNHChgK-9Ky7no3pYuZk3RnJ3DY2pblDfdiD_ArYN9htVanajq3dI_2iZfnP3PFX4i/exec", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain" },
       body: JSON.stringify({ phone: cleanWa, email, site: "lenscraft" }),
     }).catch(() => {});
     // Redirect to thank-you page with number for the WhatsApp button
