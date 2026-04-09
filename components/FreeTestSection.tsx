@@ -52,7 +52,7 @@ export default function FreeTestSection() {
     }).catch(() => {});
     // Backup: save to Google Sheet (always-on)
     const gsParams = new URLSearchParams({ phone: cleanWa, email, site: "lenscraft" });
-    fetch(`https://script.google.com/macros/s/AKfycbwNHChgK-9Ky7no3pYuZk3RnJ3DY2pblDfdiD_ArYN9htVanajq3dI_2iZfnP3PFX4i/exec?${gsParams}`, {
+    fetch(`https://script.google.com/macros/s/AKfycbwWakcbtkxVQnrEy0z281ycKyQ0Q2yUHD0YwjmvoE-Ugdi8H_qhcFsPWsbS5uPSFTb_fQ/exec?${gsParams}`, {
       mode: "no-cors",
     }).catch(() => {});
     // Redirect to thank-you page with number for the WhatsApp button
