@@ -1,20 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
-import { MessageCircle, ChevronDown, Users } from "@/components/icons";
+import { MessageCircle, ChevronDown } from "@/components/icons";
 
 export default function FloatingElements() {
-  const [count, setCount] = useState(127);
   const [showPill, setShowPill] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((c) => {
-        const delta = Math.floor(Math.random() * 3) - 1;
-        return Math.min(145, Math.max(100, c + delta));
-      });
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const onScroll = () =>
@@ -25,46 +14,6 @@ export default function FloatingElements() {
 
   return (
     <>
-      {/* Live viewers — bottom left */}
-      <div
-        style={{
-          position: "fixed",
-          bottom: 24,
-          left: 24,
-          zIndex: 40,
-          backgroundColor: "rgba(17,24,39,0.95)",
-          border: "1px solid rgba(255,255,255,0.1)",
-          borderRadius: 16,
-          padding: "12px 16px",
-          display: "flex",
-          alignItems: "center",
-          gap: 10,
-        }}
-      >
-        <div
-          style={{
-            width: 36,
-            height: 36,
-            borderRadius: "50%",
-            background: "linear-gradient(135deg,#257BF4,#8B5CF6)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flexShrink: 0,
-          }}
-        >
-          <Users size={16} color="white" />
-        </div>
-        <div>
-          <div style={{ fontSize: 13, fontWeight: 600, color: "#FAFAFA" }}>
-            🔥 {count} personnes regardent
-          </div>
-          <div style={{ fontSize: 12, color: "#9CA3AF" }}>
-            en ce moment sur le site
-          </div>
-        </div>
-      </div>
-
       {/* WhatsApp bubble — bottom right */}
       <a
         href="https://wa.me/447446248557"
