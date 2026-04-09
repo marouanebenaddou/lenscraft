@@ -2,18 +2,18 @@ export default function HowItWorksSection() {
   const steps = [
     {
       icon: "🛒",
-      title: "1. Pick a Plan",
-      desc: "Just go through checkout with one of our many secured payment methods.",
+      title: "1. Choisissez un abonnement",
+      desc: "Passez simplement à la caisse avec l'un de nos nombreux moyens de paiement sécurisés.",
     },
     {
       icon: "✉️",
-      title: "2. Receive Instructions and Codes",
-      desc: "You'll receive everything by email or WhatsApp. If it takes longer than expected, feel free to follow up via email.",
+      title: "2. Recevez vos identifiants et codes",
+      desc: "Vous recevrez tout par e-mail ou WhatsApp. Si cela prend plus de temps que prévu, n'hésitez pas à nous contacter par e-mail.",
     },
     {
       icon: "🎬",
-      title: "3. Enjoy Your IPTV Subscription",
-      desc: "Instantly access your favorite channels, movies, and series. Dive into endless entertainment with our IPTV service. Watch anytime, anywhere.",
+      title: "3. Profitez de votre abonnement IPTV",
+      desc: "Accédez instantanément à vos chaînes, films et séries préférés. Plongez dans un divertissement sans fin avec notre service IPTV. Regardez à tout moment, partout.",
     },
   ];
 
@@ -37,7 +37,7 @@ export default function HowItWorksSection() {
             fontFamily: "inherit",
           }}
         >
-          How does it work?
+          Comment ça marche ?
         </h2>
 
         {/* Cards */}
