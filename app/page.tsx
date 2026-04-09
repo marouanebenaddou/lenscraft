@@ -17,12 +17,14 @@ import SupportSection from "@/components/SupportSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import FloatingCTA from "@/components/FloatingCTA";
 
 export default function Home() {
   return (
     <>
       <Navbar />
       <FloatingElements />
+      <FloatingCTA />
       <main>
         <section id="hero">
           <HeroSection />
