@@ -8,7 +8,7 @@ export function Animate({
   type = "fadeInUp",
   delay = 0,
   duration = 0.65,
-  threshold = 0.12,
+  threshold = 0,
   style,
   className,
 }: {
@@ -26,17 +26,31 @@ export function Animate({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    // Safety fallback: reveal after 2.5s regardless
+    const timeout = setTimeout(() => setVisible(true), 2500);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setVisible(true);
+          clearTimeout(timeout);
           observer.disconnect();
         }
       },
-      { threshold }
+      { threshold, rootMargin: "0px 0px -20px 0px" }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+
+    // If already in view on mount (e.g. anchor jump), trigger immediately
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      clearTimeout(timeout);
+      observer.disconnect();
+    }
+
+    return () => { observer.disconnect(); clearTimeout(timeout); };
   }, [threshold]);
 
   return (
