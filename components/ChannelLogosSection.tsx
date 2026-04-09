@@ -1,9 +1,46 @@
 "use client";
-import Image from "next/image";
 import { Animate } from "@/components/Animate";
 
-// 26 real channel logos from original site
-const channelLogos = Array.from({ length: 26 }, (_, i) => `/images/channels/ch-${String(i + 1).padStart(2, "0")}.png`);
+type Channel = {
+  name: string;
+  icon?: string;
+  iconColor?: string;
+  bg: string;
+  textColor?: string;
+};
+
+const channels: Channel[] = [
+  // Streaming
+  { name: "Netflix",       icon: "netflix",       iconColor: "E50914", bg: "#141414" },
+  { name: "Disney+",       bg: "#1133A5",          textColor: "#ffffff" },
+  { name: "Prime Video",   bg: "#00A8E0",          textColor: "#ffffff" },
+  { name: "Apple TV+",     icon: "appletv",        iconColor: "ffffff", bg: "#000000" },
+  { name: "Max",           icon: "max",            iconColor: "ffffff", bg: "#002BE7" },
+  { name: "Shahid",        bg: "#4CAF50",          textColor: "#ffffff" },
+  { name: "DAZN",          icon: "dazn",           iconColor: "F8FF00", bg: "#111111" },
+  // Chaînes françaises
+  { name: "TF1",           bg: "#003E99",          textColor: "#ffffff" },
+  { name: "M6",            bg: "#E2001A",          textColor: "#ffffff" },
+  { name: "France TV",     bg: "#004A9A",          textColor: "#ffffff" },
+  { name: "Canal+",        bg: "#111111",          textColor: "#ffffff" },
+  { name: "Arte",          bg: "#002E5E",          textColor: "#FF6600" },
+  { name: "BFM TV",        bg: "#E2001A",          textColor: "#ffffff" },
+  { name: "RMC Sport",     bg: "#1A1A8C",          textColor: "#ffffff" },
+  // Sports
+  { name: "beIN Sports",   bg: "#E30613",          textColor: "#ffffff" },
+  { name: "Premier League", icon: "premierleague", iconColor: "ffffff", bg: "#380285" },
+  { name: "Champions League", bg: "#071D49",       textColor: "#C4A847" },
+  { name: "Ligue 1",       bg: "#001E62",          textColor: "#D4AF37" },
+  { name: "LaLiga",        bg: "#EE8100",          textColor: "#ffffff" },
+  { name: "Serie A",       bg: "#010E80",          textColor: "#ffffff" },
+  { name: "Bundesliga",    bg: "#D3010C",          textColor: "#ffffff" },
+  { name: "Eurosport",     bg: "#FF6B00",          textColor: "#ffffff" },
+  // Chaînes arabes
+  { name: "MBC",           bg: "#006DB3",          textColor: "#ffffff" },
+  { name: "Al Jazeera",    bg: "#CC0000",          textColor: "#ffffff" },
+  { name: "Rotana",        bg: "#B8860B",          textColor: "#ffffff" },
+  { name: "OSN",           bg: "#D4000F",          textColor: "#ffffff" },
+];
 
 export default function ChannelLogosSection() {
   return (
@@ -19,22 +56,55 @@ export default function ChannelLogosSection() {
           </p>
         </Animate>
 
-        {/* Channel logo grid — real images */}
+        {/* Channel logo grid */}
         <Animate type="fadeInUp" delay={0.15}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))", gap: 12 }}>
-          {channelLogos.map((src, i) => (
-            <div
-              key={i}
-              style={{ backgroundColor: "rgba(17,24,39,0.8)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: 8, display: "flex", alignItems: "center", justifyContent: "center", aspectRatio: "16/9", overflow: "hidden", transition: "transform 0.2s", cursor: "default" }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.06)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-            >
-              <div style={{ position: "relative", width: "100%", height: "100%" }}>
-                <Image src={src} alt={`Channel ${i + 1}`} fill style={{ objectFit: "contain" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(110px, 1fr))", gap: 12 }}>
+            {channels.map((ch) => (
+              <div
+                key={ch.name}
+                title={ch.name}
+                style={{
+                  backgroundColor: ch.bg,
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  borderRadius: 12,
+                  padding: 12,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  aspectRatio: "16/9",
+                  overflow: "hidden",
+                  transition: "transform 0.2s",
+                  cursor: "default",
+                  gap: 4,
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.06)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              >
+                {ch.icon ? (
+                  <img
+                    src={`https://cdn.simpleicons.org/${ch.icon}/${ch.iconColor ?? "ffffff"}`}
+                    alt={ch.name}
+                    style={{ width: 36, height: 36, objectFit: "contain" }}
+                  />
+                ) : (
+                  <span
+                    style={{
+                      fontSize: "clamp(9px, 1.1vw, 12px)",
+                      fontWeight: 800,
+                      color: ch.textColor ?? "#ffffff",
+                      textAlign: "center",
+                      lineHeight: 1.2,
+                      letterSpacing: "0.02em",
+                      padding: "0 4px",
+                    }}
+                  >
+                    {ch.name}
+                  </span>
+                )}
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </Animate>
       </div>
     </section>
