@@ -67,7 +67,7 @@ const paymentMethods = [
 function PlanSelector({ value, onChange, plans, accent }: {
   value: number;
   onChange: (n: number) => void;
-  plans: { label: string }[];
+  plans: { label: string; price: string; discount?: string }[];
   accent: string;
 }) {
   return (
@@ -77,14 +77,18 @@ function PlanSelector({ value, onChange, plans, accent }: {
           key={n}
           onClick={() => onChange(n)}
           className={cn(
-            "flex-1 rounded-lg py-1.5 text-xs font-semibold border transition-all cursor-pointer",
+            "flex-1 rounded-lg py-1.5 md:py-2.5 text-xs font-semibold border transition-all cursor-pointer flex flex-col items-center",
             value === n
               ? "text-white"
               : "border-white/10 bg-white/5 text-white/50 hover:text-white/80"
           )}
           style={value === n ? { borderColor: accent, backgroundColor: `${accent}18`, color: accent } : {}}
         >
-          {p.label}
+          <span>{p.label}</span>
+          <span className="hidden md:block text-[12px] font-bold mt-1">{p.price}</span>
+          {p.discount && (
+            <span className="hidden md:block text-[10px] font-medium mt-0.5 opacity-80">{p.discount}</span>
+          )}
         </button>
       ))}
     </div>
@@ -120,11 +124,11 @@ export default function PricingSection() {
         </Animate>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
 
           {/* ── PREMIUM ── */}
           <Animate type="fadeInLeft" delay={0.1}>
-            <PricingCard.Card className="w-full max-w-sm">
+            <PricingCard.Card className="w-full">
               <PricingCard.Header>
                 <PricingCard.Plan>
                   <PricingCard.PlanName>
@@ -174,7 +178,7 @@ export default function PricingSection() {
 
           {/* ── GOLD ── */}
           <Animate type="fadeInRight" delay={0.15}>
-            <div className="relative w-full max-w-sm">
+            <div className="relative w-full">
               <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-400 text-black text-xs font-bold rounded-full px-4 py-1.5 whitespace-nowrap shadow-lg">
                 <Crown className="h-3 w-3" /> RECOMMANDÉ
               </div>
