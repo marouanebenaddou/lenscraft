@@ -2,14 +2,14 @@
 import { Animate } from "@/components/Animate";
 
 const movies = [
-  { rank: 1, img: "https://dublinview.com/wp-content/uploads/2026/02/1.png" },
-  { rank: 2, img: "https://dublinview.com/wp-content/uploads/2026/02/2.png" },
-  { rank: 3, img: "https://dublinview.com/wp-content/uploads/2026/02/3.png" },
-  { rank: 4, img: "https://dublinview.com/wp-content/uploads/2026/02/4.png" },
-  { rank: 5, img: "https://dublinview.com/wp-content/uploads/2026/02/5.png" },
-  { rank: 6, img: "https://dublinview.com/wp-content/uploads/2026/02/6.png" },
-  { rank: 7, img: "https://dublinview.com/wp-content/uploads/2026/02/7.png" },
-  { rank: 8, img: "https://dublinview.com/wp-content/uploads/2026/02/8.png" },
+  { rank: 1, img: "/images/trending/1.jpg", alt: "Demon Slayer: Infinity Castle" },
+  { rank: 2, img: "/images/trending/2.jpg", alt: "Lupin" },
+  { rank: 3, img: "/images/trending/3.jpg", alt: "Lilo & Stitch" },
+  { rank: 4, img: "/images/trending/4.jpg", alt: "A Minecraft Movie" },
+  { rank: 5, img: "/images/trending/5.jpg", alt: "Adolescence" },
+  { rank: 6, img: "/images/trending/6.jpg", alt: "Mickey 17" },
+  { rank: 7, img: "/images/trending/7.jpg", alt: "Thunderbolts" },
+  { rank: 8, img: "/images/trending/8.jpg", alt: "Sinners" },
 ];
 
 export default function TrendingSection() {
@@ -51,7 +51,7 @@ export default function TrendingSection() {
                 <img
                   className="poster-img"
                   src={movie.img}
-                  alt={`Top ${movie.rank}`}
+                  alt={movie.alt}
                   style={{
                     width: "100%",
                     height: "100%",
