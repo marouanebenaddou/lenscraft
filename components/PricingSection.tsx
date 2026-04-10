@@ -23,7 +23,7 @@ const goldPlans = [
 
 const premiumFeatures = [
   "Qualité HD / 4K sur tous vos écrans",
-  "1 Application IPTV incluse",
+  "Compatible avec tous les lecteurs",
   "1 Appareil connecté simultanément",
   "Activation immédiate en 5 min",
   "Support WhatsApp 7j/7",
@@ -34,7 +34,7 @@ const premiumFeatures = [
 
 const goldFeatures = [
   "Qualité 4K Ultra HD premium",
-  "3 Applications IPTV incluses",
+  "Compatible avec tous les lecteurs",
   "1 Appareil connecté simultanément",
   "Technologie Anti-Freeze exclusive",
   "Replay 24h sur les chaînes sélectionnées",
