@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { CheckCircle2, Star, Zap, Crown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Animate } from "@/components/Animate";
@@ -396,8 +395,8 @@ export default function PricingSection() {
                     {p.badge}
                   </span>
                 )}
-                <div className="relative w-12 h-7">
-                  <Image src={p.img} alt={p.name} fill style={{ objectFit: "contain" }} />
+                <div style={{ width: 44, height: 28, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <img src={p.img} alt={p.name} style={{ maxWidth: 44, maxHeight: 28, objectFit: "contain", opacity: 0.85 }} />
                 </div>
                 <span className="text-[9px] text-gray-400 font-medium text-center leading-tight">{p.name}</span>
               </div>
