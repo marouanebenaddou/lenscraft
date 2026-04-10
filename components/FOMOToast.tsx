@@ -28,7 +28,7 @@ export default function FOMOToast() {
     setName(pick(NAMES));
     setAction(pick(ACTIONS));
     setVisible(true);
-    setTimeout(() => setVisible(false), 5000);
+    setTimeout(() => setVisible(false), 9000);
   };
 
   useEffect(() => {
