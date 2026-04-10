@@ -18,6 +18,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import FloatingCTA from "@/components/FloatingCTA";
+import FOMOToast from "@/components/FOMOToast";
 import ChannelSearchSection from "@/components/ChannelSearchSection";
 
 export default function Home() {
@@ -26,6 +27,7 @@ export default function Home() {
       <Navbar />
       <FloatingElements />
       <FloatingCTA />
+      <FOMOToast />
       <main>
         <section id="hero">
           <HeroSection />
