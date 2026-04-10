@@ -2,14 +2,14 @@
 import { Animate } from "@/components/Animate";
 
 const movies = [
-  { rank: 1, img: "/images/trending/1.jpg", alt: "Demon Slayer: Infinity Castle" },
-  { rank: 2, img: "/images/trending/2.jpg", alt: "Lupin" },
-  { rank: 3, img: "/images/trending/3.jpg", alt: "Lilo & Stitch" },
-  { rank: 4, img: "/images/trending/4.jpg", alt: "A Minecraft Movie" },
-  { rank: 5, img: "/images/trending/5.jpg", alt: "Adolescence" },
-  { rank: 6, img: "/images/trending/6.jpg", alt: "Mickey 17" },
-  { rank: 7, img: "/images/trending/7.jpg", alt: "Thunderbolts" },
-  { rank: 8, img: "/images/trending/8.jpg", alt: "Sinners" },
+  { rank: 1, img: "/images/trending/1.jpg", alt: "The Boys Season 5" },
+  { rank: 2, img: "/images/trending/2.jpg", alt: "Euphoria Season 3" },
+  { rank: 3, img: "/images/trending/3.jpg", alt: "Lupin" },
+  { rank: 4, img: "/images/trending/4.jpg", alt: "Beef Season 2" },
+  { rank: 5, img: "/images/trending/5.jpg", alt: "Demon Slayer: Infinity Castle" },
+  { rank: 6, img: "/images/trending/6.jpg", alt: "The Testaments" },
+  { rank: 7, img: "/images/trending/7.jpg", alt: "Half Man" },
+  { rank: 8, img: "/images/trending/8.jpg", alt: "Hacks Season 5" },
 ];
 
 export default function TrendingSection() {
