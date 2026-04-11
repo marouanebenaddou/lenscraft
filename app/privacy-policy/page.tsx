@@ -18,14 +18,14 @@ export default function PrivacyPolicy() {
             Politique de Confidentialité
           </h1>
           <p style={{ fontSize: 14, color: "rgba(255,255,255,0.4)" }}>
-            Dernière mise à jour : Avril 2025 — Lenscraft IPTV
+            Dernière mise à jour : Avril 2025 — Lenscraft
           </p>
         </div>
 
         {[
           {
             title: "1. Qui sommes-nous",
-            content: `Lenscraft IPTV ("nous") fournit des services de streaming IPTV premium aux clients en France, Europe et à l'international. Nous sommes engagés à protéger vos données personnelles conformément au Règlement Général sur la Protection des Données (RGPD).
+            content: `Lenscraft ("nous") exploite une plateforme de divertissement numérique et des services associés destinés aux clients en France, en Europe et à l'international. Nous nous engageons à protéger vos données personnelles conformément au Règlement Général sur la Protection des Données (RGPD).
 
 Contact : contact@lensscrafts.com`,
           },
@@ -46,7 +46,7 @@ Nous ne collectons pas directement vos coordonnées bancaires.`,
             content: `Nous utilisons vos données personnelles pour :
 • Vous contacter via WhatsApp pour configurer votre essai gratuit ou abonnement
 • Envoyer des communications liées au service
-• Améliorer nos services et l'expérience utilisateur
+• Améliorer notre plateforme et l'expérience utilisateur
 • Personnaliser le contenu selon votre pays/région
 • Respecter nos obligations légales
 
@@ -65,7 +65,7 @@ Nous ne vendons, ne louons ni ne partageons vos données avec des tiers à des f
           },
           {
             title: "6. Facebook Lead Ads",
-            content: `Si vous soumettez vos coordonnées via un formulaire instantané Facebook, vos données sont transférées de Meta Platforms vers nos systèmes via une API sécurisée. Ces données sont utilisées uniquement pour vous contacter au sujet de notre service IPTV. La politique de confidentialité de Meta s'applique également aux données collectées via leur plateforme.`,
+            content: `Si vous soumettez vos coordonnées via un formulaire instantané Facebook, vos données sont transférées de Meta Platforms vers nos systèmes via une API sécurisée. Ces données sont utilisées uniquement pour vous contacter au sujet de notre service. La politique de confidentialité de Meta s'applique également aux données collectées via leur plateforme.`,
           },
           {
             title: "7. Conservation des données",
