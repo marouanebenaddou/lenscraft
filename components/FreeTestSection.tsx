@@ -29,8 +29,9 @@ export default function FreeTestSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Remove leading 0 after country code e.g. +212 0612... → +212 612...
-    const cleanWa = whatsapp.replace(/^(\+\d+)\s*0+/, "$1");
+    // Strip all spaces, then remove leading 0 right after country code (1-4 digits)
+    const raw = whatsapp.replace(/\s+/g, "");
+    const cleanWa = raw.replace(/^(\+\d{1,4})0/, "$1");
     // Notify owner immediately (fire-and-forget — direct to ngrok bot)
     const payload = {
       object: "page",
