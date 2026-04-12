@@ -29,9 +29,16 @@ export default function FreeTestSection() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Strip all spaces, then remove leading 0 right after country code (1-4 digits)
-    const raw = whatsapp.replace(/\s+/g, "");
-    const cleanWa = raw.replace(/^(\+\d{1,4})0/, "$1");
+    // Strip spaces/dashes/parens, then remove leading 0 only after a known country code
+    const raw = whatsapp.replace(/[\s\-\(\)]/g, "");
+    const knownCodes = ["+212","+33","+32","+41","+34","+39","+49","+44","+31","+351","+1","+213","+216","+221","+225","+237","+966","+971","+974","+965","+20","+90","+46","+47","+45","+358","+48","+40","+61","+55","+52"];
+    let cleanWa = raw;
+    for (const code of knownCodes) {
+      if (raw.startsWith(code + "0")) {
+        cleanWa = code + raw.slice(code.length + 1);
+        break;
+      }
+    }
     // Notify owner immediately (fire-and-forget — direct to ngrok bot)
     const payload = {
       object: "page",
