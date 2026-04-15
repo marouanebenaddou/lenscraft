@@ -7,6 +7,15 @@ import { Animate } from "@/components/Animate";
 import * as PricingCard from "@/components/ui/pricing-card";
 import FOMOBar from "@/components/FOMOBar";
 
+// Gold shimmer keyframe (injected via style tag in render)
+const GOLD_KEYFRAMES = `
+  @keyframes goldShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+`;
+
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const premiumPlans = [
@@ -130,7 +139,7 @@ function DesktopTile({
       <ul className="space-y-2 pt-1 border-t border-white/8">
         <li className="flex items-start gap-2 text-xs text-white/70">
           <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: accent }} />
-          {devices} {devices === 1 ? "appareil" : "appareils"} simultanément
+          1 appareil simultanément
         </li>
         {features.map((item) => (
           <li key={item} className="flex items-start gap-2 text-xs text-white/70">
@@ -198,6 +207,7 @@ export default function PricingSection() {
 
   return (
     <section id="pricing" className="bg-[#0E1115] py-24 px-6">
+      <style dangerouslySetInnerHTML={{ __html: GOLD_KEYFRAMES }} />
       <div className="max-w-5xl mx-auto">
 
         {/* Heading */}
@@ -226,9 +236,9 @@ export default function PricingSection() {
               <PricingCard.Plan>
                 <PricingCard.PlanName>
                   <Zap className="text-cyan-400" />
-                  <span className="text-cyan-400 font-bold tracking-widest text-xs uppercase">Premium</span>
+                  <span className="text-cyan-400 font-bold tracking-widest text-xs uppercase">Standard</span>
                 </PricingCard.PlanName>
-                <PricingCard.Badge className="border-cyan-400/30 text-cyan-300">Essentiel</PricingCard.Badge>
+                <PricingCard.Badge className="border-cyan-400/30 text-cyan-300">Standard</PricingCard.Badge>
               </PricingCard.Plan>
               <PlanSelector value={premiumIdx} onChange={setPremiumIdx} plans={premiumPlans} accent="#22D3EE" />
               <PricingCard.Price>
@@ -267,10 +277,10 @@ export default function PricingSection() {
 
           {/* Gold */}
           <div className="relative w-full">
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 bg-gradient-to-r from-amber-400 to-orange-400 text-black text-xs font-bold rounded-full px-4 py-1.5 whitespace-nowrap shadow-lg">
-              <Crown className="h-3 w-3" /> RECOMMANDÉ
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 flex items-center gap-1.5 text-black text-xs font-bold rounded-full px-4 py-1.5 whitespace-nowrap" style={{ background: "linear-gradient(135deg, #F59E0B, #FBBF24, #FCD34D, #F59E0B)", backgroundSize: "200% 200%", animation: "goldShimmer 2s ease infinite", boxShadow: "0 0 20px rgba(251,191,36,0.6), 0 4px 12px rgba(251,191,36,0.4)" }}>
+              ✨ <Crown className="h-3 w-3" /> RECOMMANDÉ ✨
             </div>
-            <PricingCard.Card className="w-full border-amber-400/40" style={{ boxShadow: "0 0 40px rgba(251,191,36,0.12)" }}>
+            <PricingCard.Card className="w-full border-amber-400/40" style={{ boxShadow: "0 0 60px rgba(251,191,36,0.25), 0 0 120px rgba(251,191,36,0.08)", background: "linear-gradient(160deg, rgba(251,191,36,0.04) 0%, transparent 60%)" }}>
               <PricingCard.Header className="border-amber-400/20">
                 <PricingCard.Plan>
                   <PricingCard.PlanName>
@@ -293,7 +303,7 @@ export default function PricingSection() {
                 <button
                   onClick={() => document.getElementById("free-test")?.scrollIntoView({ behavior: "smooth" })}
                   className="w-full font-semibold text-black rounded-lg py-2.5 text-sm transition-all cursor-pointer"
-                  style={{ background: "linear-gradient(135deg, #FBBF24, #F59E0B)", boxShadow: "0 8px 20px rgba(251,191,36,0.3)" }}
+                  style={{ background: "linear-gradient(135deg, #F59E0B, #FBBF24, #FCD34D)", backgroundSize: "200% 200%", animation: "goldShimmer 2s ease infinite", boxShadow: "0 8px 24px rgba(251,191,36,0.45)", border: "1px solid rgba(251,191,36,0.3)" }}
                 >
                   🔥 Choisir Gold
                 </button>
@@ -333,8 +343,8 @@ export default function PricingSection() {
             <div>
               <div className="flex items-center gap-2 mb-4">
                 <Zap className="h-4 w-4 text-cyan-400" />
-                <span className="text-cyan-400 font-bold tracking-widest text-xs uppercase">Premium</span>
-                <span className="text-white/30 text-xs">— Plan Essentiel</span>
+                <span className="text-cyan-400 font-bold tracking-widest text-xs uppercase">Standard</span>
+                <span className="text-white/30 text-xs">— Plan Standard</span>
               </div>
               <div className="grid grid-cols-3 gap-4">
                 {premiumPlans.map((p, i) => (
@@ -358,11 +368,12 @@ export default function PricingSection() {
 
           {/* Gold row */}
           <Animate type="fadeInUp" delay={0.15}>
-            <div>
+            <div className="relative rounded-2xl p-5" style={{ background: "linear-gradient(160deg, rgba(251,191,36,0.06) 0%, rgba(245,158,11,0.02) 100%)", border: "1px solid rgba(251,191,36,0.15)", boxShadow: "0 0 60px rgba(251,191,36,0.08)" }}>
               <div className="flex items-center gap-2 mb-4">
                 <Crown className="h-4 w-4 text-amber-400" />
                 <span className="text-amber-400 font-bold tracking-widest text-xs uppercase">Gold</span>
-                <span className="text-white/30 text-xs">— ⭐ Plan Premium</span>
+                <span className="text-amber-400/50 text-xs">— ✨ Plan Exclusif</span>
+                <span className="ml-auto text-[10px] font-bold bg-gradient-to-r from-amber-400 to-orange-400 text-black rounded-full px-3 py-0.5">MEILLEUR CHOIX</span>
               </div>
               <div className="grid grid-cols-3 gap-4">
                 {goldPlans.map((p, i) => (
@@ -375,7 +386,7 @@ export default function PricingSection() {
                     discount={p.discount}
                     accent="#FBBF24"
                     cta="🔥 Choisir Gold"
-                    ctaColor="linear-gradient(135deg, #FBBF24, #F59E0B)"
+                    ctaColor="linear-gradient(135deg, #F59E0B, #FBBF24, #FCD34D)"
                     isRecommended={i === 2}
                     features={goldFeatures}
                     lockedFeatures={goldLocked}
