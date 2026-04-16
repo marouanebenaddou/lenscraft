@@ -71,7 +71,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", marginTop: 48, paddingTop: 24, textAlign: "center" }}>
-          <p style={{ fontSize: 13, color: "#6B7280" }}>© 2024 Lenscraft — Tous droits réservés.</p>
+          <p style={{ fontSize: 13, color: "#6B7280" }}>© 2026 Lenscraft — Tous droits réservés.</p>
         </div>
         </Animate>
       </div>
